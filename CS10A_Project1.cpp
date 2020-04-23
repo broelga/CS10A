@@ -1,11 +1,3 @@
-/*
-Name: Joel Thomas
-Class: CS10A
-Date: March 30, 2020
-Instructor: Sujan Sarkar
-Filename: Thomas_p1.cpp
-*/
-
 /*  This program uses functions to generate a rocket using values given by the user. The rocket
     will either be hollow or filled-in depending of the height is odd or even. */
 
