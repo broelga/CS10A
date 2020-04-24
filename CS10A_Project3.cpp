@@ -4,18 +4,18 @@
 // with the ability to input scores, read scores from file, sort the list and search for a specific score.
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-unsigned programMenu(int[], int);   // Function called from main(), calls all other functions depending on user choice.
-void getScores(int[], int);         // Function that allows user to input scores.
-void readScores(int[], int);        // Function that reads scores from file.
+unsigned programMenu(int[], int);         // Function called from main(), calls all other functions depending on user choice.
+void getScores(int[], int);               // Function that allows user to input scores.
+void readScores(int[], int);              // Function that reads scores from file.
 void printScores(const int[], int);       // Function that prints all scores.
 void printHighestScore(const int[], int); // Function that prints the highest score.
 void printLowestScore(const int[], int);  // Function that prints the lowest score.
 void printAverageScore(const int[], int); // Function that prints the average score.
-void sortDescending(int[], int);    // Function that sorts the scores in descending order.
-void searchForValue(int[], int);    // Function that allows user to search for specific score.
-int binarySearch(int[], int, int);  // Function that uses a binary search to search for user-specified score.
+void sortDescending(int[], int);          // Function that sorts the scores in descending order.
+void searchForValue(int[], int);          // Function that allows user to search for specific score.
+int binarySearch(int[], int, int);        // Function that uses a binary search to search for user-specified score.
 void printOneScore(const int[], int);     // Function that allows user to print a specific score and number of scores higher.
-void swap(int &, int &);            // Function to swap values during sorting.
+void swap(int &, int &);                  // Function to swap values during sorting.
 
 #include <iostream>
 #include <fstream> // Needed for file stream
@@ -28,12 +28,10 @@ int main()
     const int ARRAY_SIZE = 10;    // The size of the array
     int scores[ARRAY_SIZE] = {0}; // The array, initialized with 0
     bool running = true;          // Boolean to keep program running while true
-
-    while (running) // Begin program loop
-    {
-        // Calls the program menu and assigns running to what is returned from function
+    
+    /* Begin program loop. Bool is returned once function is complete */
+    while (running)
         running = programMenu(scores, ARRAY_SIZE);
-    }
 }
 
 /////////////////////////////
@@ -118,7 +116,7 @@ unsigned programMenu(int someArray[], int limit)
                 cout << "Array processing test now concluded. Exiting program .....\n";
                 return 0; // Program terminates
             }
-        else /* Invalid choice-restart loop */
+        else // Invalid choice-restart loop
         {
             if (!cin)
             {
@@ -128,7 +126,7 @@ unsigned programMenu(int someArray[], int limit)
             cout << "Invalid choice. Please choose options 1 - 8.\n\n";
             isValid = false;
         }
-    } while (!isValid); /* while choice is invalid */
+    } while (!isValid); // while choice is invalid
 
     return 2; // Program restarts
 }
@@ -185,6 +183,7 @@ void getScores(int someArray[], int limit)
             }
         }
     } while (!isValid);
+    
     cout << "\nPress enter to continue";
     cin.get();
 }
@@ -234,9 +233,7 @@ void readScores(int someArray[], int limit)
             while (inFile)
             {
                 for (unsigned index = 0; index < limit; index++)
-                {
                     inFile >> someArray[index];
-                }
             }
             // Reset file.
             inFile.clear();
@@ -369,6 +366,7 @@ void sortDescending(int someArray[], int limit)
         // Assign start and array[index] values
         maxIndex = start,
         maxValue = someArray[start];
+        
         // Sort function starting at array[1]
         for (unsigned index = start + 1; index < limit; index++)
         {
@@ -434,8 +432,10 @@ void searchForValue(int someArray[], int limit)
 
     // Data is displayed to user.
     if (index != -1)
+    {
         cout << "Score of " << userScore << " was found at"
              << " entry #" << (index + 1) << "\n";
+    }
     else
         cout << "Score of " << userScore << " was not found.\n";
 
@@ -471,15 +471,15 @@ int binarySearch(int someArray[], int limit, int value)
         middle = (first + last) / 2;
 
         if (someArray[middle] == value)
-        {
             found = true;
-        }
+        
         else if (someArray[middle] < value)
             last = middle - 1;
-
+        
         else if (someArray[middle] > value)
             first = middle + 1;
     }
+    
     // If found return -1, else return index
     if (!found)
         return position;
@@ -518,9 +518,7 @@ void printOneScore(const int someArray[], int limit)
         if (cin)
         {
             if (entryNum > 0 && entryNum <= limit)
-            {
                 isValid = true;
-            }
             else
             {
                 cout << "Invalid input. Try again.\n";
