@@ -29,7 +29,7 @@ int main()
     const int ARRAY_SIZE = 10;    // The size of the array
     int scores[ARRAY_SIZE] = {0}; // The array, initialized with 0
     bool running = true;          // Boolean to keep program running while true
-    
+
     /* Begin program loop. Bool is returned once function is complete */
     while (running)
         running = programMenu(scores, ARRAY_SIZE);
@@ -65,10 +65,10 @@ unsigned programMenu(int someArray[], int limit)
          << "4. Print the highest score.\n"
          << "5. Print the lowest score.\n"
          << "6. Print the average score.\n"
-         << "7. Sort scores in descending order.\n"
-         << "8. Search for score.\n"
-         << "9. Print one score (give its entry number)\n"
-         << "10. Quit program\n\n";
+         << "7. Print one score (give its entry number)\n"
+         << "8. Quit program\n"
+         << "9. Sort scores in descending order.\n"
+         << "10. Search for score.\n\n";
     do
     {
         isValid = true;
@@ -100,22 +100,22 @@ unsigned programMenu(int someArray[], int limit)
             case 6: /* Print the average score */
                 printAverageScore(someArray, limit);
                 break;
-            case 7: /* Sort scores in descending order */
+            case 7: /* Print one score (give its entry number) ((Call specific subscript)) */
+                printOneScore(someArray, limit);
+                break;
+            case 8: /* Quit the program */
+                cout << "Array processing test now concluded. Exiting program .....\n";
+                return 0; // Program terminates
+            case 9: /* Sort scores in descending order */
                 sortDescending(someArray, limit);
                 cout << "Sort completed.\n"
                      << "Please select the print all scores menu option to view the scores.\n"
                      << "\nPress enter to continue ";
                 cin.get();
                 break;
-            case 8: /* Allow user to search for score */
+            case 10: /* Allow user to search for score */
                 searchForValue(someArray, limit);
                 break;
-            case 9: /* Print one score (give its entry number) ((Call specific subscript)) */
-                printOneScore(someArray, limit);
-                break;
-            case 10: /* Quit the program */
-                cout << "Array processing test now concluded. Exiting program .....\n";
-                return 0; // Program terminates
             }
         else // Invalid choice-restart loop
         {
@@ -184,7 +184,7 @@ void getScores(int someArray[], int limit)
             }
         }
     } while (!isValid);
-    
+
     cout << "\nPress enter to continue";
     cin.get();
 }
@@ -367,7 +367,7 @@ void sortDescending(int someArray[], int limit)
         // Assign start and array[index] values
         maxIndex = start,
         maxValue = someArray[start];
-        
+
         // Sort function starting at array[1]
         for (unsigned index = start + 1; index < limit; index++)
         {
@@ -473,14 +473,14 @@ int binarySearch(int someArray[], int limit, int value)
 
         if (someArray[middle] == value)
             found = true;
-        
+
         else if (someArray[middle] < value)
             last = middle - 1;
-        
+
         else if (someArray[middle] > value)
             first = middle + 1;
     }
-    
+
     // If found return -1, else return index
     if (!found)
         return position;
