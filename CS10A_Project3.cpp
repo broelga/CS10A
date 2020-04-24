@@ -4,6 +4,7 @@
 // with the ability to input scores, read scores from file, sort the list and search for a specific score.
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
+// Function prototypes
 unsigned programMenu(int[], int);         // Function called from main(), calls all other functions depending on user choice.
 void getScores(int[], int);               // Function that allows user to input scores.
 void readScores(int[], int);              // Function that reads scores from file.
