@@ -112,17 +112,17 @@ int main()
     }
 }
 
-/////////////////////////////
-// Function definitions
-/////////////////////////////
+//////////////////////////
+// Function definitions //
+//////////////////////////
 
 /////////////////////////////////////////////////////////////////////
-// Function that allows user to input scores.
-// User is prompted for scores input. Each iteration of the loop
-// will assign the input to an array subscript. The input is
-// verified. If verification fails, user will be prompted to input
-// data again. Once completed function will return to
-// main().
+// Function that allows user to input scores.                      //
+// User is prompted for scores input. Each iteration of the loop   //
+// will assign the input to an array subscript. The input is       //
+// verified. If verification fails, user will be prompted to input //
+// data again. Once completed function will return to              //
+// main().                                                         //
 /////////////////////////////////////////////////////////////////////
 void getScores(int someArray[], int limit)
 {
@@ -173,14 +173,14 @@ void getScores(int someArray[], int limit)
     cin.get();
 }
 
-/////////////////////////////////////////////////////////////////////
-// Function that reads scores from file.
-// User is prompted to provide filename of file to open and read
-// from. If file is correct, the data is read from file and stored
-// in array. Else the user is prompted to provide correct filename.
-// File is closed, reset to begining and function returns to
-// main().
-/////////////////////////////////////////////////////////////////////
+//////////////////////////////////////////////////////////////////////
+// Function that reads scores from file.                            //
+// User is prompted to provide filename of file to open and read    //
+// from. If file is correct, the data is read from file and stored  //
+// in array. Else the user is prompted to provide correct filename. //
+// File is closed, reset to begining and function returns to        //
+// main().                                                          //
+//////////////////////////////////////////////////////////////////////
 void readScores(int someArray[], int limit)
 {
     // Pre:     Prompt for and get filename.
@@ -234,11 +234,11 @@ void readScores(int someArray[], int limit)
     } while (!inFile);
 }
 
-/////////////////////////////////////////////////////////////////////
-// Function that prints all scores.
-// Function will index through array[] and print scores with every
-// iteration. Returns to main().
-/////////////////////////////////////////////////////////////////////
+//////////////////////////////////////////////////////////////////////
+// Function that prints all scores.                                 //
+// Function will index through array[] and print scores with every  //
+// iteration. Returns to main().                                    //
+//////////////////////////////////////////////////////////////////////
 void printScores(const int someArray[], int limit)
 {
     // Pre:     Starts at array[0] and prints first score.
@@ -254,9 +254,9 @@ void printScores(const int someArray[], int limit)
 }
 
 /////////////////////////////////////////////////////////////////////
-// Function that prints the highest score.
-// The function will iterate through array and assign the highest
-// score to variable and display the highest score to user.
+// Function that prints the highest score.                         //
+// The function will iterate through array and assign the highest  //
+// score to variable and display the highest score to user.        //
 /////////////////////////////////////////////////////////////////////
 void printHighestScore(const int someArray[], int limit)
 {
@@ -278,11 +278,11 @@ void printHighestScore(const int someArray[], int limit)
     cin.get();
 }
 
-/////////////////////////////////////////////////////////////////////
-// Function that prints the lowest score.
-// The function will iterate through array and assign the lowest
-// score to variable and display the lowest score to user.
-/////////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////
+// Function that prints the lowest score.                        //
+// The function will iterate through array and assign the lowest //
+// score to variable and display the lowest score to user.       //
+///////////////////////////////////////////////////////////////////
 void printLowestScore(const int someArray[], int limit)
 {
     // Pre:     Iterate through array and compare score to lowest variable.
@@ -303,12 +303,12 @@ void printLowestScore(const int someArray[], int limit)
     cin.get();
 }
 
-/////////////////////////////////////////////////////////////////////
-// Function that prints the average score.
-// The function will iterate through the array and accumulate the
-// scores. Once competed the mean is calculated and displayed to the
-// user. Returns to main().
-/////////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////////
+// Function that prints the average score.                           //
+// The function will iterate through the array and accumulate the    //
+// scores. Once competed the mean is calculated and displayed to the //
+// user. Returns to main().                                          //
+///////////////////////////////////////////////////////////////////////
 void printAverageScore(const int someArray[], int limit)
 {
     // Pre:     Iterate through scores and accumulate each score.
@@ -331,15 +331,15 @@ void printAverageScore(const int someArray[], int limit)
     cin.get();
 }
 
-/////////////////////////////////////////////////////////////////////
-// Function that allows user to print a specific score and displays
-// the number of scores that are higher.
-// User is prompted for entry number of score they want to view.
-// Input is verified before continuing. Entry number and entry score
-// is displayed then the array is iterated to find the numbers
-// that are higher than that score. Any higher scores are counted
-// then displayed. Returns to main().
-/////////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////////
+// Function that allows user to print a specific score and displays  //
+// the number of scores that are higher.                             //
+// User is prompted for entry number of score they want to view.     //
+// Input is verified before continuing. Entry number and entry score //
+// is displayed then the array is iterated to find the numbers       //
+// that are higher than that score. Any higher scores are counted    //
+// then displayed. Returns to main().                                //
+///////////////////////////////////////////////////////////////////////
 void printOneScore(const int someArray[], int limit)
 {
     // Pre:     Get entry number from user and verify.
@@ -390,12 +390,12 @@ void printOneScore(const int someArray[], int limit)
     cin.get();
 }
 
-/////////////////////////////////////////////////////////////////////
-// Function that sorts the scores in descending order.
-// Function uses selection sort algorithm to sort the scores in the
-// array in descending order in conjuction with swap() function.
-// Returns to main().
-/////////////////////////////////////////////////////////////////////
+//////////////////////////////////////////////////////////////////////
+// Function that sorts the scores in descending order.              //
+// Function uses selection sort algorithm to sort the scores in the //
+// array in descending order in conjuction with swap() function.    //
+// Returns to main().                                               //
+//////////////////////////////////////////////////////////////////////
 void sortDescending(int someArray[], int limit)
 {
     // Pre:     Declare variables and begin selection sort loop.
@@ -425,13 +425,13 @@ void sortDescending(int someArray[], int limit)
     }
 }
 
-/////////////////////////////////////////////////////////////////////
-// Function allows user to search for specific score.
-// User is prompted to input score. User-score is verified and sent to
-// binarySearch() to find score. binarySearch() returns with either
-// the index of the score or -1 if score was not found. Data is
-// displayed to user and returns to main().
-/////////////////////////////////////////////////////////////////////h
+//////////////////////////////////////////////////////////////////////////
+// Function allows user to search for specific score.                   //
+// User is prompted to input score. User-score is verified and sent to  //
+// binarySearch() to find score. binarySearch() returns with either     //
+// the index of the score or -1 if score was not found. Data is         //
+// displayed to user and returns to main().                             //
+//////////////////////////////////////////////////////////////////////////
 void searchForValue(int someArray[], int limit)
 {
     // Pre:     Prompt for, get, and verify input. Send input to binarySearch().
@@ -487,13 +487,13 @@ void searchForValue(int someArray[], int limit)
     cin.get();
 }
 
-/////////////////////////////////////////////////////////////////////
-// Function that uses a binary search to search for user-specified
-// score. The array is first sent to sortDescending to be sorted
-// so the binary search can be performed. Once sorted, the array is
-// the searched for the user-score. If found, the index is returned,
-// else -1 is returned signifying it was not found.
-/////////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////////
+// Function that uses a binary search to search for user-specified   //
+// score. The array is first sent to sortDescending to be sorted     //
+// so the binary search can be performed. Once sorted, the array is  //
+// the searched for the user-score. If found, the index is returned, //
+// else -1 is returned signifying it was not found.                  //
+///////////////////////////////////////////////////////////////////////
 int binarySearch(int someArray[], int limit, int value)
 {
     // Pre:     Array is sent to sortDescending for descending-sort.
@@ -531,11 +531,17 @@ int binarySearch(int someArray[], int limit, int value)
         return middle;
 }
 
-/////////////////////////////////////////////////////////////////////
-// Function to swap values during sorting
-/////////////////////////////////////////////////////////////////////
-void swap(int &element1, int &element2)
+///////////////////////////////////////////////////////////////////
+// Function to swap values during sorting                       //
+// Temporary file is created assigned to the value of element1. //
+// Both element1 and element2 have swapped value and values are //
+// returned.                                                    //
+//////////////////////////////////////////////////////////////////
+    void
+    swap(int &element1, int &element2)
 {
+    // Pre:     Temporary file is created assigned to the value of element1.
+    // Post:    Both element1 and element2 have swapped value and values are returned.
     int temp = element1;
 
     element1 = element2;
