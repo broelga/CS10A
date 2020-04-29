@@ -1,11 +1,3 @@
-/*
-Name: Joel Thomas
-Class: CS10A
-Date: April 29, 2020
-Instructor: Sujan Sarkar
-Filename: Thomas_p4b.cpp
-*/
-
 /////////////////////////////////////////////////////////////////////////////////////////////////////////
 // Project 4a: Collecting banknotes                                                                    //
 // This program takes an amount from the user, calculates the number of banknotes and prints the       //
