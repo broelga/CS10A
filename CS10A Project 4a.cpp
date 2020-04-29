@@ -1,11 +1,3 @@
-/*
-Name: Joel Thomas
-Class: CS10A
-Date: April 27, 2020
-Instructor: Sujan Sarkar
-Filename: Thomas_p4a.cpp
-*/
-
 ////////////////////////////////////////////////////////////////////////////////////////////////////////
 // Project 4a: Simple array manipulations                                                             //
 // This program is used to sort and display arrays in different way. An array is copied from another  //
