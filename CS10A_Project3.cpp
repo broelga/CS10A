@@ -5,17 +5,17 @@
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 // Function prototypes
-void getScores(int[], int);               // Function that allows user to input scores.
-void readScores(int[], int);              // Function that reads scores from file.
-void printScores(const int[], int);       // Function that prints all scores.
-void printHighestScore(const int[], int); // Function that prints the highest score.
-void printLowestScore(const int[], int);  // Function that prints the lowest score.
-void printAverageScore(const int[], int); // Function that prints the average score.
-void sortDescending(int[], int);          // Function that sorts the scores in descending order.
-void searchForValue(int[], int);          // Function that allows user to search for specific score.
-int binarySearch(int[], int, int);        // Function that uses a binary search to search for user-specified score.
-void printOneScore(const int[], int);     // Function that allows user to print a specific score and number of scores higher.
-void swap(int &, int &);                  // Function to swap values during sorting.
+void getScores(/*  in*/ int[], /* inin */ int);               // Function that allows user to input scores.
+void readScores(/* in */ int[], /* in */ int);                // Function that reads scores from file.
+void printScores(/* in */ const int[], /* in */ int);         // Function that prints all scores.
+void printHighestScore(/* in */ const int[], /* in */ int);   // Function that prints the highest score.
+void printLowestScore(/* in */ const int[], /* in */ int);    // Function that prints the lowest score.
+void printAverageScore(/* in */ const int[], /* in */ int);   // Function that prints the average score.
+void sortDescending(/* in */ int[], /* in */ int);            // Function that sorts the scores in descending order.
+void searchForValue(/* in */ int[], /* in */ int);            // Function that allows user to search for specific score.
+int binarySearch(/* in */ int[], /* in */ int, /* in */ int); // Function that uses a binary search to search for user-specified score.
+void printOneScore(/* in */ const int[], /* in */ int);       // Function that allows user to print a specific score and number of scores higher.
+void swap(/* inOut */ int &, /* inOut */ int &);              // Function to swap values during sorting.
 
 #include <iostream>
 #include <fstream> // Needed for file stream
@@ -29,12 +29,11 @@ int main()
     int scores[ARRAY_SIZE] = {0}; // The array, initialized with 0
     unsigned choice = 0;          // User choice for option
     bool running = true,          // Boolean to keep program running while true
-        isValid;                  // Used for input verification
+        isValid = false;          // Used for input verification
 
     /* Begin program loop. Bool is returned once function is complete */
     while (running)
     {
-
         // Display menu and get input
         cout << "---------------------------------------------------\n"
              << "1-D ARRAY PROCESSING MENU OPTIONS\n"
@@ -124,12 +123,12 @@ int main()
 // data again. Once completed function will return to              //
 // main().                                                         //
 /////////////////////////////////////////////////////////////////////
-void getScores(int someArray[], int limit)
+void getScores(/* in */ int someArray[], /* in */ int limit)
 {
     // Pre:     User is prompted to input scores one at a time.
     // Post:    Once all scores have been input, function returns to main().
     // Declare variables
-    bool isValid;
+    bool isValid = false;
     unsigned userInput = 0;
 
     // Begin function loop
@@ -181,7 +180,7 @@ void getScores(int someArray[], int limit)
 // File is closed, reset to begining and function returns to        //
 // main().                                                          //
 //////////////////////////////////////////////////////////////////////
-void readScores(int someArray[], int limit)
+void readScores(/* in */ int someArray[], /* in */ int limit)
 {
     // Pre:     Prompt for and get filename.
     // Post:    Verify correct filename and read data and store into array. Return to main().
@@ -239,7 +238,7 @@ void readScores(int someArray[], int limit)
 // Function will index through array[] and print scores with every  //
 // iteration. Returns to main().                                    //
 //////////////////////////////////////////////////////////////////////
-void printScores(const int someArray[], int limit)
+void printScores(/* in */ const int someArray[], /* in */ int limit)
 {
     // Pre:     Starts at array[0] and prints first score.
     // Post:    Once all scores have printed, returns to main().
@@ -258,7 +257,7 @@ void printScores(const int someArray[], int limit)
 // The function will iterate through array and assign the highest  //
 // score to variable and display the highest score to user.        //
 /////////////////////////////////////////////////////////////////////
-void printHighestScore(const int someArray[], int limit)
+void printHighestScore(/* in */ const int someArray[], /* in */ int limit)
 {
     // Pre:     Iterate through array and compare score to highest variable.
     // Post:    Once all scores have been compared and the highest score has been assigned,
@@ -283,7 +282,7 @@ void printHighestScore(const int someArray[], int limit)
 // The function will iterate through array and assign the lowest //
 // score to variable and display the lowest score to user.       //
 ///////////////////////////////////////////////////////////////////
-void printLowestScore(const int someArray[], int limit)
+void printLowestScore(/* in */ const int someArray[], /* in */ int limit)
 {
     // Pre:     Iterate through array and compare score to lowest variable.
     // Post:    Once all scores have been compared and the lowest score has been assigned,
@@ -309,13 +308,13 @@ void printLowestScore(const int someArray[], int limit)
 // scores. Once competed the mean is calculated and displayed to the //
 // user. Returns to main().                                          //
 ///////////////////////////////////////////////////////////////////////
-void printAverageScore(const int someArray[], int limit)
+void printAverageScore(/* in */ const int someArray[], /* in */ int limit)
 {
     // Pre:     Iterate through scores and accumulate each score.
     // Post:    cast the score and assign the average to variable. Display average and return to main().
     // Declare variables
     unsigned sum = 0;
-    float average;
+    float average = 0.0f;
 
     // Begin function loop and accumulate scores
     for (unsigned index = 0; index < limit; index++)
@@ -340,14 +339,14 @@ void printAverageScore(const int someArray[], int limit)
 // that are higher than that score. Any higher scores are counted    //
 // then displayed. Returns to main().                                //
 ///////////////////////////////////////////////////////////////////////
-void printOneScore(const int someArray[], int limit)
+void printOneScore(/* in */ const int someArray[], /* in */ int limit)
 {
     // Pre:     Get entry number from user and verify.
     // Post:    Display entry number and score display. Iterate thru array and count number of higher scores.
     //          Display higher counter and return to main().
     // Declare variables
-    unsigned entryNum,
-        higherCounter = 0;
+    unsigned entryNum = 0,
+             higherCounter = 0;
     bool isValid = false;
 
     do
@@ -396,13 +395,13 @@ void printOneScore(const int someArray[], int limit)
 // array in descending order in conjuction with swap() function.    //
 // Returns to main().                                               //
 //////////////////////////////////////////////////////////////////////
-void sortDescending(int someArray[], int limit)
+void sortDescending(/* in */ int someArray[], /* in */ int limit)
 {
     // Pre:     Declare variables and begin selection sort loop.
     // Post:    Array is sorted in descending order and returns to main().
     // Declare variable.
-    int maxIndex,
-        maxValue;
+    int maxIndex = 0,
+        maxValue = 0;
 
     // Begin function loop
     for (int start = 0; start < (limit - 1); start++)
@@ -432,7 +431,7 @@ void sortDescending(int someArray[], int limit)
 // the index of the score or -1 if score was not found. Data is         //
 // displayed to user and returns to main().                             //
 //////////////////////////////////////////////////////////////////////////
-void searchForValue(int someArray[], int limit)
+void searchForValue(/* in */ int someArray[], /* in */ int limit)
 {
     // Pre:     Prompt for, get, and verify input. Send input to binarySearch().
     // Post:    binarySearch() returns value, either the index of the score or -1 if not found.
@@ -494,7 +493,7 @@ void searchForValue(int someArray[], int limit)
 // the searched for the user-score. If found, the index is returned, //
 // else -1 is returned signifying it was not found.                  //
 ///////////////////////////////////////////////////////////////////////
-int binarySearch(int someArray[], int limit, int value)
+int binarySearch(/* in */ int someArray[], /* in */ int limit, /* in */ int value)
 {
     // Pre:     Array is sent to sortDescending for descending-sort.
     // Post:    Array is searched for user-score and returns either the index of score
@@ -502,7 +501,7 @@ int binarySearch(int someArray[], int limit, int value)
     // Declare variables.
     int first = 0,
         last = limit - 1,
-        middle,
+        middle = 0,
         position = -1;
     bool found = false;
 
@@ -537,8 +536,7 @@ int binarySearch(int someArray[], int limit, int value)
 // Both element1 and element2 have swapped value and values are //
 // returned.                                                    //
 //////////////////////////////////////////////////////////////////
-    void
-    swap(int &element1, int &element2)
+void swap(/* inOut */ int &element1, /* inOut */ int &element2)
 {
     // Pre:     Temporary file is created assigned to the value of element1.
     // Post:    Both element1 and element2 have swapped value and values are returned.
